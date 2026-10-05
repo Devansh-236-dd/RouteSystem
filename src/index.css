@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #F5F0E8;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Neobrutalism tokens ─── */
+:root {
+  --nb-bg: #F5F0E8;
+  --nb-black: #0A0A0A;
+  --nb-border: 2.5px solid #0A0A0A;
+  --nb-shadow: 4px 4px 0px #0A0A0A;
+  --nb-shadow-lg: 6px 6px 0px #0A0A0A;
+  --nb-shadow-sm: 2px 2px 0px #0A0A0A;
+  --nb-yellow: #FFE135;
+  --nb-pink: #FF3CAC;
+  --nb-blue: #2D6BE4;
+  --nb-green: #00C853;
+  --nb-orange: #FF6B35;
+  --nb-teal: #00C2CB;
+  --nb-red: #FF1744;
+  --nb-purple: #7B2FBE;
+  --nb-mono: 'Space Mono', monospace;
+}
+
+/* ─── Base card ─── */
+.nb-card {
+  background: #fff;
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow-lg);
+  border-radius: 0;
+}
+
+.nb-card-yellow { background: #FFE135; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+.nb-card-pink   { background: #FF3CAC; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+.nb-card-teal   { background: #00C2CB; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+.nb-card-blue   { background: #2D6BE4; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+.nb-card-green  { background: #00C853; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+.nb-card-orange { background: #FF6B35; border: var(--nb-border); box-shadow: var(--nb-shadow-lg); }
+
+/* ─── Buttons ─── */
+.nb-btn {
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.08s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+}
+
+.nb-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px #0A0A0A; }
+.nb-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #0A0A0A; }
+
+.nb-btn-yellow { background: #FFE135; }
+.nb-btn-black  { background: #0A0A0A; color: #fff; }
+.nb-btn-blue   { background: #2D6BE4; color: #fff; }
+.nb-btn-green  { background: #00C853; }
+.nb-btn-pink   { background: #FF3CAC; color: #fff; }
+.nb-btn-teal   { background: #00C2CB; }
+
+/* ─── Input ─── */
+.nb-input {
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background: #fff;
+  outline: none;
+  transition: box-shadow 0.08s;
+}
+.nb-input:focus { box-shadow: 4px 4px 0px #0A0A0A; }
+
+/* ─── Tag / pill ─── */
+.nb-tag {
+  border: 2px solid #0A0A0A;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  font-family: var(--nb-mono);
+}
+
+/* ─── Nav ─── */
+.nb-nav-item {
+  border: 2.5px solid transparent;
+  transition: all 0.1s;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 14px;
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.nb-nav-item.active {
+  background: #FFE135;
+  border: 2.5px solid #0A0A0A;
+  box-shadow: 2px 2px 0px #0A0A0A;
+}
+
+/* ─── Toggle group ─── */
+.nb-toggle {
+  border: var(--nb-border);
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  background: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.08s;
+}
+.nb-toggle.active {
+  background: #0A0A0A;
+  color: #FFE135;
+}
+
+/* ─── Divider ─── */
+.nb-divider { height: 2.5px; background: #0A0A0A; }
+
+/* ─── Leaflet overrides ─── */
+.leaflet-container {
+  border: 2.5px solid #0A0A0A;
+  box-shadow: var(--nb-shadow-lg);
+}
+.leaflet-popup-content-wrapper {
+  border: 2px solid #0A0A0A !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #0A0A0A !important;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.leaflet-popup-tip { display: none; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F5F0E8; }
+::-webkit-scrollbar-thumb { background: #0A0A0A; }
+
+/* ─── Confidence bar ─── */
+.conf-bar-wrap { background: #E0DDD6; border: 2px solid #0A0A0A; height: 10px; }
+.conf-bar { height: 100%; transition: width 0.5s ease; }
+
+/* ─── Route card active ─── */
+.route-card-active {
+  background: #FFE135;
+  border: 2.5px solid #0A0A0A;
+  box-shadow: 4px 4px 0px #0A0A0A;
+}
+.route-card-inactive {
+  background: #fff;
+  border: 2.5px solid #0A0A0A;
+  box-shadow: 4px 4px 0px #0A0A0A;
+}

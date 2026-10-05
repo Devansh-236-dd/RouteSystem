@@ -1,0 +1,10 @@
+{
+  "description": "A student-focused commute planner that prioritizes timetables to deliver safe, cost-effective routes with live updates and community coordination.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
